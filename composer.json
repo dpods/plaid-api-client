@@ -1,0 +1,12 @@
+{
+    "name": "dglass/plaid-api",
+    "description": "PHP API wrapper for Plaid.com",
+    "type": "library",
+    "authors": [
+        {
+            "name": "David Glassanos",
+            "email": "david.glassanos@gmail.com"
+        }
+    ],
+    "require": {}
+}
