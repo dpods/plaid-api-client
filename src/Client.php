@@ -12,7 +12,7 @@ use Plaid\Requester;
 
 class Client
 {
-    const VERSION = '2.1.1';
+    const VERSION = '0.1.0';
 
     const DEFAULT_TIMEOUT = 600; // 10 minutes
 
