@@ -1,12 +1,12 @@
 <?php
 
-namespace DGlass;
+namespace Plaid;
 
 require_once __DIR__ . '/Api.php';
 require_once __DIR__ . '/PublicToken.php';
 
-use DGlass\PublicToken;
-use DGlass\Api;
+use Plaid\PublicToken;
+use Plaid\Api;
 
 class Item extends Api
 {

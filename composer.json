@@ -1,6 +1,6 @@
 {
-    "name": "dglass/plaid-api",
-    "description": "PHP API wrapper for Plaid.com",
+    "name": "dpods/plaid-api-client",
+    "description": "PHP API Client for Plaid.com",
     "type": "library",
     "authors": [
         {
@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-0": {
-            "DGlass": "src/"
+            "Plaid": "src/"
         }
     }
 }

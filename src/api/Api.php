@@ -1,8 +1,8 @@
 <?php
 
-namespace DGlass;
+namespace Plaid;
 
-use DGlass\Client;
+use Plaid\Client;
 
 class Api
 {

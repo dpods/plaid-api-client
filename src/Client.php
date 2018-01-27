@@ -1,14 +1,14 @@
 <?php
 
-namespace DGlass;
+namespace Plaid;
 
 require_once __DIR__ . '/Requester.php';
 require_once __DIR__ . '/api/Transactions.php';
 require_once __DIR__ . '/api/Item.php';
 
-use DGlass\Item;
-use DGlass\Transactions;
-use DGlass\Requester;
+use Plaid\Item;
+use Plaid\Transactions;
+use Plaid\Requester;
 
 class Client
 {

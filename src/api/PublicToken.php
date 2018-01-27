@@ -1,10 +1,10 @@
 <?php
 
-namespace DGlass;
+namespace Plaid;
 
 require_once __DIR__ . '/Api.php';
 
-use DGlass\Api;
+use Plaid\Api;
 
 class PublicToken extends Api
 {

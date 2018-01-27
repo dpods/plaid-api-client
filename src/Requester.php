@@ -1,6 +1,6 @@
 <?php
 
-namespace DGlass;
+namespace Plaid;
 
 require_once __DIR__ . '/PlaidException.php';
 
