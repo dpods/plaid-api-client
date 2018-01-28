@@ -52,4 +52,4 @@ $transactions = $response['transactions'];
 [2]: https://github.com/plaid/plaid-python
 [3]: https://plaid.com/docs/api
 [4]: https://github.com/plaid/link
-[5]: https://github.com/plaid/plaid-python/blob/master/LICENSE
+[5]: https://github.com/dpods/plaid-api-php-client/blob/master/LICENSE
