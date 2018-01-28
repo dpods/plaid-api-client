@@ -5,6 +5,7 @@ namespace Plaid;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Plaid\Api\Accounts;
+use Plaid\Api\Auth;
 use Plaid\Api\Balance;
 use Plaid\Api\Categories;
 use Plaid\Api\CreditDetails;
@@ -56,6 +57,7 @@ class Client
         $this->requester = new Requester();
 
         $this->accounts = new Accounts($this);
+        $this->auth = new Auth($this);
         $this->balance = new Balance($this);
         $this->categories = new Categories($this);
         $this->creditDetails = new CreditDetails($this);
@@ -69,6 +71,11 @@ class Client
     public function accounts()
     {
         return $this->accounts;
+    }
+
+    public function auth()
+    {
+        return $this->auth;
     }
 
     public function balance()
