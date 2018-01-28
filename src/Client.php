@@ -8,6 +8,7 @@ use Plaid\Api\Accounts;
 use Plaid\Api\Balance;
 use Plaid\Api\Categories;
 use Plaid\Api\CreditDetails;
+use Plaid\Api\Identity;
 use Plaid\Api\Income;
 use Plaid\Api\Institutions;
 use Plaid\Api\Item;
@@ -58,6 +59,7 @@ class Client
         $this->balance = new Balance($this);
         $this->categories = new Categories($this);
         $this->creditDetails = new CreditDetails($this);
+        $this->identity = new Identity($this);
         $this->income = new Income($this);
         $this->institutions = new Institutions($this);
         $this->item = new Item($this);
@@ -82,6 +84,11 @@ class Client
     public function creditDetails()
     {
         return $this->creditDetails;
+    }
+
+    public function identity()
+    {
+        return $this->identity;
     }
 
     public function income()
