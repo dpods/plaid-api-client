@@ -4,7 +4,11 @@ namespace Plaid;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use Plaid\Api\Accounts;
+use Plaid\Api\Balance;
 use Plaid\Api\Categories;
+use Plaid\Api\CreditDetails;
+use Plaid\Api\Income;
 use Plaid\Api\Institutions;
 use Plaid\Api\Item;
 use Plaid\Api\Transactions;
@@ -49,15 +53,40 @@ class Client
         $this->timeout = $timeout;
 
         $this->requester = new Requester();
+
+        $this->accounts = new Accounts($this);
+        $this->balance = new Balance($this);
         $this->categories = new Categories($this);
+        $this->creditDetails = new CreditDetails($this);
+        $this->income = new Income($this);
         $this->institutions = new Institutions($this);
         $this->item = new Item($this);
         $this->transactions = new Transactions($this);
     }
 
+    public function accounts()
+    {
+        return $this->accounts;
+    }
+
+    public function balance()
+    {
+        return $this->balance;
+    }
+
     public function categories()
     {
         return $this->categories;
+    }
+
+    public function creditDetails()
+    {
+        return $this->creditDetails;
+    }
+
+    public function income()
+    {
+        return $this->income;
     }
 
     public function institutions()
