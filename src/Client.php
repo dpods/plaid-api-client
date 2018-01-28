@@ -5,6 +5,7 @@ namespace Plaid;
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use Plaid\Api\Categories;
+use Plaid\Api\Institutions;
 use Plaid\Api\Item;
 use Plaid\Api\Transactions;
 
@@ -49,6 +50,7 @@ class Client
 
         $this->requester = new Requester();
         $this->categories = new Categories($this);
+        $this->institutions = new Institutions($this);
         $this->item = new Item($this);
         $this->transactions = new Transactions($this);
     }
@@ -56,6 +58,11 @@ class Client
     public function categories()
     {
         return $this->categories;
+    }
+
+    public function institutions()
+    {
+        return $this->institutions;
     }
 
     public function item()
@@ -81,6 +88,15 @@ class Client
     public function postPublic($path, $data)
     {
         return $this->_post($path, $data);
+    }
+
+    public function postPublicKey($path, $data)
+    {
+        $postData = array_merge($data, [
+            'public_key' => $this->publicKey,
+        ]);
+
+        return $this->_post($path, $postData);
     }
 
     private function _post($path, $data)
