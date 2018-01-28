@@ -2,8 +2,6 @@
 
 namespace Plaid;
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use Plaid\Api\Accounts;
 use Plaid\Api\Auth;
 use Plaid\Api\Balance;
