@@ -4,8 +4,9 @@ namespace Plaid;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use Plaid\Api\Transactions;
+use Plaid\Api\Categories;
 use Plaid\Api\Item;
+use Plaid\Api\Transactions;
 
 class Client
 {
@@ -47,8 +48,14 @@ class Client
         $this->timeout = $timeout;
 
         $this->requester = new Requester();
-        $this->transactions = new Transactions($this);
+        $this->categories = new Categories($this);
         $this->item = new Item($this);
+        $this->transactions = new Transactions($this);
+    }
+
+    public function categories()
+    {
+        return $this->categories;
     }
 
     public function item()
@@ -69,6 +76,11 @@ class Client
         ]);
 
         return $this->_post($path, $postData);
+    }
+
+    public function postPublic($path, $data)
+    {
+        return $this->_post($path, $data);
     }
 
     private function _post($path, $data)
