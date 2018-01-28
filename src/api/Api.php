@@ -1,6 +1,6 @@
 <?php
 
-namespace Plaid;
+namespace Plaid\Api;
 
 use Plaid\Client;
 

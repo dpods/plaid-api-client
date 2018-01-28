@@ -1,10 +1,6 @@
 <?php
 
-namespace Plaid;
-
-require_once __DIR__ . '/Api.php';
-
-use Plaid\Api;
+namespace Plaid\Api;
 
 class PublicToken extends Api
 {

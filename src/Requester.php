@@ -2,8 +2,6 @@
 
 namespace Plaid;
 
-require_once __DIR__ . '/PlaidException.php';
-
 class Requester
 {
     public function postRequest($url, $data, $timeout)

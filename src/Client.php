@@ -2,13 +2,10 @@
 
 namespace Plaid;
 
-require_once __DIR__ . '/Requester.php';
-require_once __DIR__ . '/api/Transactions.php';
-require_once __DIR__ . '/api/Item.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
-use Plaid\Item;
-use Plaid\Transactions;
-use Plaid\Requester;
+use Plaid\Api\Transactions;
+use Plaid\Api\Item;
 
 class Client
 {
@@ -50,7 +47,6 @@ class Client
         $this->timeout = $timeout;
 
         $this->requester = new Requester();
-
         $this->transactions = new Transactions($this);
         $this->item = new Item($this);
     }
