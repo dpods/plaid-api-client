@@ -6,6 +6,17 @@ use Throwable;
 
 class PlaidException extends \Exception
 {
+    /**
+     * @var type
+     */
+    protected $type;
+
+    /**
+     * @var displayMessage
+     */
+    protected $displayMessage;
+
+
     public function __construct($message, $type, $code, $displayMessage)
     {
         parent::__construct($message);
@@ -67,6 +78,15 @@ class PlaidException extends \Exception
 
         return $e;
     }
+
+    public function getType() {
+        return $this->type;
+    }
+
+    public function getDisplayMessage() {
+        return $this->displayMessage;
+    }
+
 }
 
 class InvalidRequestError extends PlaidException {}

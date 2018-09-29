@@ -15,9 +15,11 @@ use Plaid\Api\Transactions;
 
 class Client
 {
-    const VERSION = '0.1.0';
+    const VERSION = '0.4.1';
 
     const DEFAULT_TIMEOUT = 600; // 10 minutes
+
+    const DEFAULT_API_VERSION = '2018-05-22'; // starting api version
 
     /**
      * @var string
@@ -44,13 +46,15 @@ class Client
      * @param $clientId
      * @param $secret
      */
-    public function __construct($clientId, $secret, $publicKey, $env, $timeout = self::DEFAULT_TIMEOUT)
+    public function __construct($clientId, $secret, $publicKey, $env, $apiVersion = null, $suppressWarnings = false, $timeout = self::DEFAULT_TIMEOUT)
     {
         $this->clientId = $clientId;
         $this->secret = $secret;
         $this->publicKey = $publicKey;
         $this->env = $env;
+        $this->suppressWarnings = $suppressWarnings;
         $this->timeout = $timeout;
+        $this->apiVersion = $apiVersion;
 
         $this->requester = new Requester();
 
@@ -145,7 +149,8 @@ class Client
         return $this->requester()->postRequest(
             implode(['https://', $this->env, '.plaid.com', $path]),
             $data,
-            $this->timeout
+            $this->timeout,
+            $this->apiVersion
         );
     }
 
