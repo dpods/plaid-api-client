@@ -4,10 +4,10 @@ namespace Plaid;
 
 class Requester
 {
-    public function postRequest($url, $data, $timeout)
+    public function postRequest($url, $data, $timeout, $apiVersion = null)
     {
         try {
-            $jsonResponse = $this->httpRequest('POST', $url, $data, $timeout);
+            $jsonResponse = $this->httpRequest('POST', $url, $data, $timeout, $apiVersion);
             $response = json_decode($jsonResponse, true);
         } catch (\Exception $e) {
             throw PlaidException::fromResponse([
@@ -25,7 +25,7 @@ class Requester
         return $response;
     }
 
-    private function httpRequest($method, $url, $data, $timeout)
+    private function httpRequest($method, $url, $data, $timeout, $apiVersion = null)
     {
         $jsonStr = json_encode($data);
 
@@ -37,6 +37,7 @@ class Requester
                 'Content-Type: application/json',
                 'Content-Length: ' . strlen($jsonStr),
                 'User-Agent: Plaid PHP v' . Client::VERSION,
+                'Plaid-Version: ' . ($apiVersion ? $apiVersion : Client::DEFAULT_API_VERSION)
             ]
         );
 
