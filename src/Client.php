@@ -12,6 +12,7 @@ use Plaid\Api\Income;
 use Plaid\Api\Institutions;
 use Plaid\Api\Item;
 use Plaid\Api\Transactions;
+use Plaid\Api\Assets;
 
 class Client
 {
@@ -68,6 +69,7 @@ class Client
         $this->institutions = new Institutions($this);
         $this->item = new Item($this);
         $this->transactions = new Transactions($this);
+        $this->assets = new Assets($this);
     }
 
     public function accounts()
@@ -118,6 +120,11 @@ class Client
     public function transactions()
     {
         return $this->transactions;
+    }
+
+    public function assets()
+    {
+        return $this->assets;
     }
 
     public function post($path, $data)
