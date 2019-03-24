@@ -15,7 +15,7 @@ class Institutions extends Api
         if($options != null) {
             $post['options'] = $options;
         }
-        return $this->client()->post('/institutions/get', );
+        return $this->client()->post('/institutions/get', $post);
     }
 
     public function getById($institutionId, $options = [])
