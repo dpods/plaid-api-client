@@ -15,6 +15,7 @@ class Requester
                 'error_type' => 'API_ERROR',
                 'error_code' => 'INTERNAL_SERVER_ERROR',
                 'display_message' => null,
+                'request_id' => null
             ]);
         }
 

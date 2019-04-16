@@ -17,12 +17,13 @@ class PlaidException extends \Exception
     protected $displayMessage;
 
 
-    public function __construct($message, $type, $code, $displayMessage)
+    public function __construct($message, $type, $code, $displayMessage, $requestId)
     {
         parent::__construct($message);
         $this->type = $type;
         $this->code = $code;
         $this->displayMessage = $displayMessage;
+        $this->requestId = $requestId;
     }
 
     public static function fromResponse($response)
@@ -35,7 +36,8 @@ class PlaidException extends \Exception
                     $response['error_message'],
                     $response['error_type'],
                     $response['error_code'],
-                    $response['display_message']
+                    $response['display_message'],
+                    $response['request_id']
                 );
                 break;
 
@@ -44,7 +46,8 @@ class PlaidException extends \Exception
                     $response['error_message'],
                     $response['error_type'],
                     $response['error_code'],
-                    $response['display_message']
+                    $response['display_message'],
+                    $response['request_id']
                 );
                 break;
 
@@ -53,7 +56,8 @@ class PlaidException extends \Exception
                     $response['error_message'],
                     $response['error_type'],
                     $response['error_code'],
-                    $response['display_message']
+                    $response['display_message'],
+                    $response['request_id']
                 );
                 break;
 
@@ -62,7 +66,8 @@ class PlaidException extends \Exception
                     $response['error_message'],
                     $response['error_type'],
                     $response['error_code'],
-                    $response['display_message']
+                    $response['display_message'],
+                    $response['request_id']
                 );
                 break;
 
@@ -71,7 +76,8 @@ class PlaidException extends \Exception
                     $response['error_message'],
                     $response['error_type'],
                     $response['error_code'],
-                    $response['display_message']
+                    $response['display_message'],
+                    $response['request_id']
                 );
                 break;
         }
