@@ -6,12 +6,16 @@ use ArrayObject;
 
 class Institutions extends Api
 {
-    public function get($count, $offset = 0)
+    public function get($count, $offset = 0, $options = null)
     {
-        return $this->client()->post('/institutions/get', [
+        $post = [
             'count' => $count,
             'offset' => $offset
-        ]);
+        ];
+        if($options != null) {
+            $post['options'] = $options;
+        }
+        return $this->client()->post('/institutions/get', $post);
     }
 
     public function getById($institutionId, $options = [])
