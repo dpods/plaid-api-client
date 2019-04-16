@@ -3,6 +3,7 @@
 namespace Plaid;
 
 use Plaid\Api\Accounts;
+use Plaid\Api\AssetReport;
 use Plaid\Api\Auth;
 use Plaid\Api\Balance;
 use Plaid\Api\Categories;
@@ -59,6 +60,7 @@ class Client
         $this->requester = new Requester();
 
         $this->accounts = new Accounts($this);
+        $this->assetReport = new AssetReport($this);
         $this->auth = new Auth($this);
         $this->balance = new Balance($this);
         $this->categories = new Categories($this);
@@ -73,6 +75,11 @@ class Client
     public function accounts()
     {
         return $this->accounts;
+    }
+
+    public function assetReport()
+    {
+        return $this->assetReport;
     }
 
     public function auth()
@@ -120,14 +127,14 @@ class Client
         return $this->transactions;
     }
 
-    public function post($path, $data)
+    public function post($path, $data, $autoDecode = true)
     {
         $postData = array_merge($data, [
             'client_id' => $this->clientId,
             'secret' => $this->secret,
         ]);
 
-        return $this->_post($path, $postData);
+        return $this->_post($path, $postData, $autoDecode);
     }
 
     public function postPublic($path, $data)
@@ -144,13 +151,14 @@ class Client
         return $this->_post($path, $postData);
     }
 
-    private function _post($path, $data)
+    private function _post($path, $data, $autoDecode = true)
     {
         return $this->requester()->postRequest(
             implode(['https://', $this->env, '.plaid.com', $path]),
             $data,
             $this->timeout,
-            $this->apiVersion
+            $this->apiVersion,
+            $autoDecode
         );
     }
 
